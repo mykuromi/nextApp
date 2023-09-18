@@ -23,7 +23,7 @@ export default async function RootLayout({ children }) {
   });
   */
 
-  const resp = await fetch("http://localhost:9999/topics", {
+  const resp = await fetch(process.env.API_URL + "topics", {
     next: { revalidate: 0, cache: "no-store" }, // no cache
   });
   const topics = await resp.json();
